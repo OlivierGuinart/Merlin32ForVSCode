@@ -1,0 +1,59 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Merlin32",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#opcodes"
+		},
+		{
+			"include": "#datadefines"
+		},
+		{
+			"include": "#directives"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.semicolon.merlin32",
+				"match": "(;|\\*).*"
+			}]
+		},
+		"opcodes": {
+			"patterns": [{
+				"name": "keyword.control.opcode.merlin32",
+				"match": "(?i)\\b(ADC|ADCL|AND|ANDL|ASL|BCC|BLT|BCS|BGE|BEQ|BIT|BMI|BNE|BPL|BRA|BRK|BRL|BVC|BVS|CLC|CLD|CLI|CLV|CMP|CMPL|COP|CPX|CPY|DEC|DEX|DEY|EOR|EORL|INC|INX|INY|JMP|JML|JMPL|JSR|JSL|LDA|LDAL|LDX|LDY|LSR|MVN|MVP|NOP|ORA|ORAL|PEA|PEI|PER|PHA|PHB|PHD|PHK|PHP|PHX|PHY|PLA|PLB|PLD|PLP|PLX|PLY|REP|ROL|ROR|RTI|RTL|RTS|SBC|SBCL|SEC|SED|SEI|SEP|STA|STAL|STP|STX|STY|STZ|TAX|TAY|TCD|TCS|TDC|TRB|TSB|TSC|TSX|TXA|TXS|TXY|TYA|TYX|WAI|WDM|XBA|XCE)\\b"
+			}]
+		},
+		"datadefines": {
+			"patterns": [{
+				"name": "storage.type.datadefine.merlin32",
+				"match": "(?i)\\b(DA|DW|DDB|DFB|DB|ADR|ADRL|HEX|DS|DC|DE|ASC|DCI|INV|FLS|REV|STR|STRL|CHK)\\b"
+			}]
+		},
+		"directives": {
+			"patterns": [{
+				"name": "support.function.directive.merlin32",
+				"match": "(?i)\\b(EQU|ANOP|ORG|PUT|PUTBIN|START|END|DUM|DEND|MX|XC|LONGA|LONGI|USE|USING|REL|DSK|LNK|SAV|TYP|IF|DO|ELSE|FIN|LUP|ELUP|\\^|ERR|DAT|AST|CYC|EXP|LST|LSTDO|PAG|TTL|SKP|TR|KBD|PAU|SW|USR)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.merlin32",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.merlin32",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.asm.merlin32"
+}

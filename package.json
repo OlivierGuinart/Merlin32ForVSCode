@@ -1,0 +1,26 @@
+{
+    "name": "merlin32",
+    "displayName": "Merlin32",
+    "description": "Language support for Merlin32",
+    "version": "0.0.1",
+    "publisher": "Aito",
+    "engines": {
+        "vscode": "^1.15.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "merlin32",
+            "aliases": ["Merlin32", "merlin32"],
+            "extensions": [".s"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "merlin32",
+            "scopeName": "source.asm.merlin32",
+            "path": "./syntaxes/merlin32.tmLanguage.json"
+        }]
+    }
+}
