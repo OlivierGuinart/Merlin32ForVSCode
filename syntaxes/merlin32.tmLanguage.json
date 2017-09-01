@@ -40,7 +40,7 @@
 		"directives": {
 			"patterns": [{
 				"name": "support.function.directive.merlin32",
-				"match": "(?i)\\b(EQU|ANOP|ORG|PUT|PUTBIN|START|END|DUM|DEND|MX|XC|LONGA|LONGI|USE|USING|REL|DSK|LNK|SAV|TYP|IF|DO|ELSE|FIN|LUP|ELUP|\\^|ERR|DAT|AST|CYC|EXP|LST|LSTDO|PAG|TTL|SKP|TR|KBD|PAU|SW|USR)\\b"
+				"match": "(?i)\\b(EQU|ANOP|ORG|PUT|PUTBIN|START|END|DUM|DEND|MX|XC|LONGA|LONGI|USE|USING|REL|DSK|LNK|SAV|TYP|IF|DO|ELSE|FIN|LUP|ELUP|ERR|DAT|AST|CYC|EXP|LST|LSTDO|PAG|TTL|SKP|TR|KBD|PAU|SW|USR)\\b|(--\\^)"
 			}]
 		},
 		"strings": {
