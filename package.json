@@ -10,17 +10,40 @@
     "categories": [
         "Languages"
     ],
+    "activationEvents": [
+        "onLanguage:merlin32"
+    ],
+    "main": "./out/extension",
     "contributes": {
-        "languages": [{
-            "id": "merlin32",
-            "aliases": ["Merlin32", "merlin32"],
-            "extensions": [".s"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "merlin32",
-            "scopeName": "source.asm.merlin32",
-            "path": "./syntaxes/merlin32.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "merlin32",
+                "aliases": [
+                    "Merlin32",
+                    "merlin32"
+                ],
+                "extensions": [
+                    ".s"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "merlin32",
+                "scopeName": "source.asm.merlin32",
+                "path": "./syntaxes/merlin32.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "vscode": "^1.0.3",
+        "typescript": "^2.1.5",
+        "@types/node": "^6.0.52"
     }
 }
