@@ -4,6 +4,20 @@ import * as data from '../strings/resources.json';
 // this method is called when vs code is activated
 export function activate(context: vscode.ExtensionContext) {
 
+    // Register the Build command (as defined in package.json)
+	var disposable = vscode.commands.registerCommand('extension.target.build', function () 
+		{ buildCommand(); });
+
+		activateHoverTooltips(context);
+}
+
+//**************************************************************
+// TODO: move this function to its own file
+// TODO: checkout what is vscode.executeHoverProvider (https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands)
+function activateHoverTooltips(context: vscode.ExtensionContext) {
+
+	console.log("Activating hover tooltips...");
+
 	function initializeOpcodesRegex() {
 		let r : string = "\\b(";
 		for (var prop in data) {
@@ -68,3 +82,24 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 }
 
+
+//**************************************************************
+function buildCommand() {
+
+	console.log("In buildCommand...");
+
+	var buildCommand = "";
+	// Getting path to Merlin32 toolset
+	buildCommand += vscode.workspace.getConfiguration("Merlin32").get("path", "Name");
+	// Adding platform (Windows, MaxOSX, Linux64)
+	buildCommand += vscode.workspace.getConfiguration("Merlin32").get("platform", "Name") + "\\";	
+	// Adding assembler executable name
+	buildCommand += "Merlin32";		
+	// Adding the libraries argument
+	buildCommand += " -V " + vscode.workspace.getConfiguration("Merlin32").get("libs", "Name");
+	buildCommand += " HelloWorld.s"; 
+
+	console.log("buildCommand = " + buildCommand);
+
+	// TODO: checkout if the integrated terminal can then be used: https://code.visualstudio.com/docs/editor/integrated-terminal
+}

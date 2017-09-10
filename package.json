@@ -11,7 +11,8 @@
         "Languages"
     ],
     "activationEvents": [
-        "onLanguage:merlin32"
+        "onLanguage:merlin32",
+        "onCommand:extension.target.build"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -33,6 +34,51 @@
                 "language": "merlin32",
                 "scopeName": "source.asm.merlin32",
                 "path": "./syntaxes/merlin32.tmLanguage.json"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Merlin32 configuration",
+            "properties": {
+                "Merlin32.platform": {
+                    "type": "string",
+                    "default": "Windows",
+                    "description": "Possible values are Windows, Linux64, MaxOSX"
+                },
+                "Merlin32.libs": {
+                    "type": "string",
+                    "default": "C:\\Users\\Olivier\\OneDrive\\Apple\\Merlin32_v1.0\\Library",
+                    "description": "Path to the Merlin32 Library folder."
+                },
+                "Merlin32.path": {
+                    "type": "string",
+                    "default": "C:\\Users\\Olivier\\OneDrive\\Apple\\Merlin32_v1.0\\",
+                    "description": "Path to the Merlin32 toolset."
+                },
+                "Merlin32.AppleII.emulator": {
+                    "type": "string",
+                    "default": "AppleWin.exe",
+                    "description": "Apple II emulator."
+                }
+            }
+        },
+        "menus": {
+            "editor/title": [{
+                "when": "editorLangId == merlin32",
+                "command": "extension.target.build",
+                "group": "navigation"
+            }]
+        },
+        "commands": [
+            {
+                "command": "extension.target.build",
+                "title": "Build"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.target.build",
+                "key": "f10"
             }
         ]
     },
