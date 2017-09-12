@@ -86,8 +86,6 @@ function activateHoverTooltips(context: vscode.ExtensionContext) {
 //**************************************************************
 function buildCommand() {
 
-	console.log("In buildCommand...");
-
 	var buildCommand = "";
 	// Getting path to Merlin32 toolset
 	buildCommand += vscode.workspace.getConfiguration("Merlin32").get("path", "Name");
@@ -97,9 +95,12 @@ function buildCommand() {
 	buildCommand += "Merlin32";		
 	// Adding the libraries argument
 	buildCommand += " -V " + vscode.workspace.getConfiguration("Merlin32").get("libs", "Name");
-	buildCommand += " HelloWorld.s"; 
+	buildCommand += " " + vscode.window.activeTextEditor.document.fileName; 
 
-	console.log("buildCommand = " + buildCommand);
-
-	// TODO: checkout if the integrated terminal can then be used: https://code.visualstudio.com/docs/editor/integrated-terminal
+	// TODO: using the integrated terminal right now but tasks are probably better so the output of the build process is there 
+	// and maybe even actionable (parse it for error, get line # and double-click can navigate to say line #
+	let terminal: vscode.Terminal;
+	terminal = vscode.window.createTerminal();
+	terminal.show();
+	terminal.sendText(buildCommand);
 }
