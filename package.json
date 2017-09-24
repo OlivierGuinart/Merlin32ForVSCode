@@ -2,7 +2,7 @@
     "name": "merlin32",
     "displayName": "Merlin32",
     "description": "Language support for Merlin32",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "Aito",
     "engines": {
         "vscode": "^1.15.0"

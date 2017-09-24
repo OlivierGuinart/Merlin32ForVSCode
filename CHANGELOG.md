@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to the "merlin32" extension will be documented in this file.
 
-## [1.0] - 2017-09-24
+## [1.0.0] - 2017-09-24
 - Initial release
   - syntax coloring, auto-completion, tooltips on hover
 
