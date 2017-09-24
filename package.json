@@ -9,6 +9,10 @@
     "engines": {
         "vscode": "^1.15.0"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://aitotiki.visualstudio.com/_git/Merlin32ForVSCode"
+    },
     "categories": [
         "Languages"
     ],
