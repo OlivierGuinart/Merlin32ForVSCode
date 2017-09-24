@@ -10,7 +10,7 @@ Provides the ability to develop 6502 assembly programs within a modern IDE.
 * Statement completion
 * Opcodes tooltip
 
-(Images/merlin32VSCodeNearest.gif)
+![Features](Images/merlin32VSCodeNearest.gif)
 
 ## Requirements
 
@@ -22,7 +22,7 @@ Not yet, but coming in a future update, to hold settings such as Merlin32 execut
 
 ## Known Issues
 
- :construction: This is work in progress...
+ This is work in progress...
 
 ## Release Notes
 
