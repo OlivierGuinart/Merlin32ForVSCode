@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "publisher": "Aito",
     "author": "Olivier Guinart",
-    "icon": "images/VSLanguageServiceIcon.png",
+    "icon": "Images/VSLanguageServiceIcon.png",
     "engines": {
         "vscode": "^1.15.0"
     },
