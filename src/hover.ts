@@ -5,8 +5,30 @@ import * as data from '../strings/resources.json';
 // this is just to enable hover.
 const opcodesDecorationType = vscode.window.createTextEditorDecorationType({ });
 
+export function activate(context: vscode.ExtensionContext)
+{
+    initializeOpcodesRegex();
+	let activeEditor = vscode.window.activeTextEditor;
+	if (activeEditor) {
+		triggerUpdateDecorations(activeEditor);
+	}
+
+	vscode.window.onDidChangeActiveTextEditor(editor => {
+		activeEditor = editor;
+		if (editor) {
+			triggerUpdateDecorations(activeEditor);
+		}
+	}, null, context.subscriptions);
+
+	vscode.workspace.onDidChangeTextDocument(event => {
+		if (activeEditor && event.document === activeEditor.document) {
+			triggerUpdateDecorations(activeEditor);
+		}
+	}, null, context.subscriptions);
+}
+
 var _regExp: RegExp;
-export function initializeOpcodesRegex() {
+function initializeOpcodesRegex() {
     let r : string = "\\b(";
     for (var prop in data) {
         if (prop != "--^") {
@@ -20,7 +42,7 @@ export function initializeOpcodesRegex() {
 
 let _activeEditor: vscode.TextEditor;
 var _timeout = null;
-export function triggerUpdateDecorations(activeEditor: vscode.TextEditor) : NodeJS.Timer {
+function triggerUpdateDecorations(activeEditor: vscode.TextEditor) : NodeJS.Timer {
     _activeEditor = activeEditor;
     if (_timeout) {
         clearTimeout(_timeout);
