@@ -3,7 +3,7 @@
     "displayName": "Merlin32",
     "description": "Visual Studio Code Language Extension for Merlin32",
     "version": "1.0.0",
-    "publisher": "Aito",
+    "publisher": "olivierguinart",
     "author": "Olivier Guinart",
     "icon": "Images/VSLanguageServiceIcon.png",
     "engines": {
