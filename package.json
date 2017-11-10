@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://aitotiki.visualstudio.com/_git/Merlin32ForVSCode"
+        "url": "https://github.com/OlivierGuinart/Merlin32ForVSCode"
     },
     "categories": [
         "Languages"
